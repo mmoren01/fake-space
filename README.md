@@ -31,9 +31,13 @@ Scheduled end time: 8:50p
 
 ## Project Requirements
 
-- Add images of planning
+![UI Planning](./public/ui-plan-and-req-notes.jpg)
+
+![Data Structure Plan](./public/data-structure-plan.jpg)
 
 ## Decision Log
+
+![Create App Options](./public/create-app-options.png)
 
 - Next.js - familiarity and ease of use
   - Page router - familiarity
@@ -50,3 +54,7 @@ Scheduled end time: 8:50p
 
 - Profile UI took a little longer than I wanted it to
 - Decided to move on to making the mock user query
+
+- Decided to work on the post section and mock API call next
+- Created the route to return the mock data
+- Implemented the MUI accordion component to be able to expand and collapse posts
