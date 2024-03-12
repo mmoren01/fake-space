@@ -1,7 +1,6 @@
 import { AppCacheProvider } from '@mui/material-nextjs/v13-pagesRouter'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { Roboto } from 'next/font/google'
-import "@/styles/globals.css"
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
