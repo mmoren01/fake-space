@@ -19,19 +19,15 @@ const styles = {
   },
 }
 
-export async function getServerSideProps() {
-  // TODO: Hook this up to a mock API call
-  const user = {
-    name: 'Mauricio',
-    id: 1,
-    age: 30,
-    sex: 'Male',
-    city: 'Glendale',
-    state: 'Arizona',
-    country: 'United States',
-    friends: [ '2', '3', '4' ],
-    profileImage: mmProfileImage,
-  }
+export async function getServerSideProps(context) {
+  const userResponse = await fetch('http://localhost:3000/api/user/1', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  const user = await userResponse.json()
 
   return {
     props: {
@@ -51,7 +47,7 @@ export default function Home({ user }) {
         <Typography variant='h3'>{user.name}</Typography>
         <Box sx={styles.imageContainer}>
           <Image
-            src={user.profileImage}
+            src={mmProfileImage}
             alt='Mauricio'
             height={200}
             width={200}

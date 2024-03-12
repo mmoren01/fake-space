@@ -47,3 +47,6 @@ Scheduled end time: 8:50p
 - Ready to start building the profile page
 - Added getServerSideProps to lay foundation for API calls later
 - Noticed I forgot a field for profileImage. Data model will need to be updated
+
+- Profile UI took a little longer than I wanted it to
+- Decided to move on to making the mock user query
