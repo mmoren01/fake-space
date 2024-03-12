@@ -3,7 +3,10 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-
+import Accordion from '@mui/material/Accordion'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import AccordionDetails from '@mui/material/AccordionDetails'
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 
 import mmProfileImage from '../../public/mm-profile-image.jpeg'
 
@@ -20,23 +23,32 @@ const styles = {
 }
 
 export async function getServerSideProps(context) {
-  const userResponse = await fetch('http://localhost:3000/api/user/1', {
+  const postsResponse = await fetch('http://localhost:3000/api/posts', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
 
+  const userResponse = await fetch('http://localhost:3000/api/user/1', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  
+  const posts = await postsResponse.json()
   const user = await userResponse.json()
 
   return {
     props: {
       user,
+      posts,
     },
   }
 }
 
-export default function Home({ user }) {
+export default function Home({ user, posts }) {
   return (
     <Grid container px={{ sm: 4, md: 8 }} sx={styles.pageRoot}>
       <Grid item xs={4} sx={{
@@ -69,6 +81,27 @@ export default function Home({ user }) {
       </Grid>
       <Grid item xs={5}>
         Post Section
+        {posts.map(({ author, id, content, date }) => {
+          const formattedDate = new Date(date).toLocaleDateString()
+
+          return (
+            <Accordion key={id}>
+              <AccordionSummary
+                expandIcon={<ArrowDropDownIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography variant='h6' sx={{ mr: 8 }}>{author}</Typography>
+                <Typography variant='h6'>{formattedDate}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  {content}
+                </Typography>
+              </AccordionDetails>
+              
+            </Accordion>
+          )})}
       </Grid>
     </Grid>
   )
