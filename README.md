@@ -43,3 +43,7 @@ Scheduled end time: 8:50p
 
 - Going to make the landing page our profile page
 - Will make the header part of the layout to be shared with other future pages
+
+- Ready to start building the profile page
+- Added getServerSideProps to lay foundation for API calls later
+- Noticed I forgot a field for profileImage. Data model will need to be updated
