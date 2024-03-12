@@ -1,3 +1,4 @@
+import Layout from '@/components/layouts'
 import { AppCacheProvider } from '@mui/material-nextjs/v13-pagesRouter'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { Roboto } from 'next/font/google'
@@ -19,7 +20,9 @@ export default function App({ Component, pageProps }) {
   return (
     <AppCacheProvider {...pageProps}>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </AppCacheProvider>
   )

@@ -40,3 +40,6 @@ Scheduled end time: 8:50p
 - JavaScript - familiarity and development speed
 - Material UI - familiarity and will be useful for planned posts component
 - EsLint - keeps code clean, consistent and legible
+
+- Going to make the landing page our profile page
+- Will make the header part of the layout to be shared with other future pages
